@@ -4,7 +4,7 @@
         <p class="p1">Персональные данные</p>
         <div class="input_line">
             <p class="p2">Имя</p>
-            <input type="text" class="input_text" @input="fInputName">
+            <input type="text" class="input_text" pattern="[A-Za-zА-Яа-яЁё]" @input="fInputName">
         </div>
         <div class="input_line">
             <p class="p2">Возраст</p>
@@ -24,7 +24,7 @@
         </div>
         <button class="Delete" @click="fDeleteKid(index)">Удалить</button>
     </div>
-    <button class="save">Сохранить</button>
+    <button class="save" @click="fSave">Сохранить</button>
     <h1>{{$store.state.profile}}</h1>
     <h1>{{Kids}}</h1>
 </div>
@@ -84,7 +84,12 @@ export default Vue.extend({
             this.fInputKidAge();
         },
         fSave(){
-            
+            var sName = this.$store.state.profile.name;
+            var sAge = this.$store.state.profile.age;
+            var sKids:[{kid_name: string, kid_age: number}] = this.$store.state.profile.kids;
+            if(sName != null && sName.length >=3 ){
+                this.$store.commit('ADD_PROFILE')
+            }
         }
     },   
 })

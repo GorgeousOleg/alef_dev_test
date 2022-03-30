@@ -24,7 +24,8 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_PROFILE: (state) => {
-      state.SavedProfiles[state.SavedProfiles.length] = state.profile;
+      state.SavedProfiles.push(state.profile);
+      // state.SavedProfiles[state.SavedProfiles.length] = state.profile;      
     },
     ADD_KID: (state) =>{
       state.profile.kids.push({      
