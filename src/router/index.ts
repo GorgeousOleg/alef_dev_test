@@ -1,14 +1,27 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
+import Form from "../views/Form.vue";
+import Preview from "../views/Preview.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
+    path: "/Home",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/",
+    name: "Form",
+    component: Form,
+  },
+  {
+    path: "/",
+    name: "Preview",
+    component: () =>
+      import("../views/Preview.vue"),
   },
   {
     path: "/about",
