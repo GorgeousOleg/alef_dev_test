@@ -18,7 +18,7 @@ const routes: Array<RouteConfig> = [
     component: Form,
   },
   {
-    path: "/",
+    path: "/Preview",
     name: "Preview",
     component: () =>
       import("../views/Preview.vue"),
