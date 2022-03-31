@@ -44,18 +44,7 @@ export default new Vuex.Store({
       state.profile.kids.push({      
         kid_name: '',
         kid_age: null})
-    }
-    ,
-    DELETE_KID: (state, {num}) =>{
-      if(state.profile.kids.length != 1){
-        state.profile.kids = state.profile.kids.slice(num, state.profile.kids.length);
-      } else {
-        state.profile.kids[0] = {
-          kid_name: '',
-          kid_age: null};
-        state.First = false
-      }
-    },
+    },    
     RECORD_NAME: (state, Name) =>{
       state.profile.name = Name;
     },
@@ -68,10 +57,6 @@ export default new Vuex.Store({
     RECORD_KID_NAME:(state, {num, kid_name}) =>{
       state.profile.kids[num].kid_name = kid_name;
     },
-    FIRST:(state, First) =>{
-      state.First = !First;
-    }
-
   },
   actions: {},
   modules: {},

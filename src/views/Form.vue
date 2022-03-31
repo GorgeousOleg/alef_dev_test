@@ -27,9 +27,6 @@
         </div>
     </div>
     <button class="save" @click="fSave">Сохранить</button>
-        <h1>{{First}}</h1>
-        <h2>{{$store.state.profile}}</h2>
-        <h2>{{$store.state.SavedProfile}}</h2>
 </div>
 </template>
 
@@ -87,8 +84,8 @@ export default Vue.extend({
                 this.fInputKidName();
                 this.fInputKidAge();
             } else {
-                this.First == false
                 this.$store.commit('ADD_KID')
+                this.First = false                
                 }
             
         },
@@ -141,7 +138,7 @@ export default Vue.extend({
         },
     },   
     mounted(){
-        if(this.Kids[0].kid_name != ''){
+        if(this.Kids[0].kid_age != null){
             this.First = true
         }
         
