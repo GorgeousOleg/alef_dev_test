@@ -11,7 +11,9 @@
             <input type="number" class="input_text" @input="fInputAge" :value="Age">
         </div>
     </div> 
+    <div v-if="Kids.length < 5">
     <button class="Add" @click="fAddKid"><p class="p4">+</p>Добавить ребенка</button>
+    </div>
     <div v-if="First || Kids[0].kid_age != null">
         <p class="p3">Дети (макс. 5)</p> 
         <div class="Kids_data" v-for="(kid_name, index) in this.Kids" :key="index">        
